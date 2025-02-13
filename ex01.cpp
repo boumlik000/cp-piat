@@ -36,7 +36,8 @@ class PhoneBook
     public:
         PhoneBook() : count(0), oldest(0) {}  // Constructor
 
-    void addContact() {
+    void addContact() 
+    {
         std::string input;
         
         Contact newContact;
@@ -79,14 +80,32 @@ class PhoneBook
         std::cout << "|     Index|First Name| Last Name| Nickname |" << std::endl;
         std::cout << "|----------|----------|----------|----------|" << std::endl;
         
-        for (int i = 0; i < count; i++) {
+        for (int i = 0; i < count; i++)
+        {
             std::cout << "|" << std::setw(10) << i << "|";
-            std::cout << std::setw(10) << (contacts[i].getFirstName().length() > 10 ? 
-                contacts[i].getFirstName().substr(0, 9) + "." : contacts[i].getFirstName()) << "|";
-            std::cout << std::setw(10) << (contacts[i].getLastName().length() > 10 ? 
-                contacts[i].getLastName().substr(0, 9) + "." : contacts[i].getLastName()) << "|";
-            std::cout << std::setw(10) << (contacts[i].getNickname().length() > 10 ? 
-                contacts[i].getNickname().substr(0, 9) + "." : contacts[i].getNickname()) << "|" << std::endl;
+            
+            if (contacts[i].getFirstName().length() > 10) {
+                std::cout << std::setw(10) << contacts[i].getFirstName().substr(0, 9) + ".";
+            } else {
+                std::cout << std::setw(10) << contacts[i].getFirstName();
+            }
+            
+            std::cout << "|";
+            
+            if (contacts[i].getLastName().length() > 10) {
+                std::cout << std::setw(10) << contacts[i].getLastName().substr(0, 9) + ".";
+            } else {
+                std::cout << std::setw(10) << contacts[i].getLastName();
+            }
+            
+            std::cout << "|";
+            
+            if (contacts[i].getNickname().length() > 10) {
+                std::cout << std::setw(10) << contacts[i].getNickname().substr(0, 9) + ".";
+            } else {
+                std::cout << std::setw(10) << contacts[i].getNickname();
+            }
+            std::cout << "|" << std::endl;
         }
 
         // Search by index
@@ -120,7 +139,9 @@ int main() {
         else if (command == "SEARCH")
             phoneBook.searchContact();
         else if (command == "EXIT")
-            break;
+            exit(0);
+        else
+            std::cout << "Invalid command!" << std::endl;
     }
 
     return 0;
