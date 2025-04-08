@@ -1,6 +1,12 @@
-#include <iostream> 
+#ifndef PHONEBOOK_HPP
+#define PHONEBOOK_HPP
+
+#include <iostream>
+#include <string> 
 #include <iomanip>
-#include <string>
+#include <cstdlib>
+
+
 class contact
 {
     std::string first_name;
@@ -24,13 +30,19 @@ class contact
 
 };
 
+
 class phonebook
 {
     contact contacts[8];
     public:
         contact new_contact;
-        int index = 0;
-        int current = 0;
+        int index ;
+        int current ;
+        phonebook()
+        {
+            index = 0;
+            current = 0;
+        }
         std::string input;
 
         int check_input(std::string input)
@@ -53,7 +65,6 @@ class phonebook
         void check_index(std::string num)
         {
             int i = 0;
-            char c;
             while (num[i])
             {
                 if (num.length() > 10) {  // Max int length is typically 10 digits
@@ -66,7 +77,7 @@ class phonebook
                 }
                 i++;
             }
-            int n = stoi(num);
+            int n = atoi(num.c_str());
             i=0;
             if (n >= 0 && n < 8)
             {
@@ -97,9 +108,6 @@ class phonebook
 
         void add_contact()
         {
-            // std::cin.ignore();
-
-
             std::cout << "firstname : ";
             std::getline(std::cin, input);
             if (check_input(input) == 0)
@@ -139,7 +147,7 @@ class phonebook
             
         }
 
-        void display_contacts(phonebook ph)
+        void display_contacts()
         {
             int i = 0;
             if (index == 0)
@@ -189,33 +197,4 @@ class phonebook
 };
 
 
-
-
-int main()
-{
-    phonebook phonebookus;
-    std :: string choice;
-    while (1)
-    {
-        std::cout << "THE PHONEBOOK : \n-----------------\n ADD or SEARCH or EXIT : " ;
-        std::getline(std::cin , choice);
-
-        
-        if (choice == "ADD")
-            phonebookus.add_contact();        
-        else if (choice == "SEARCH")
-            phonebookus.display_contacts(phonebookus);
-        else if (choice == "EXIT")
-        {
-            std::cout << "exit" << std::endl;
-            exit(0);
-        }
-        else
-            std::cout << "Invalid command!" << std::endl;
-        /* code */
-    }
-    
-    
-    
-    return 0;
-}
+#endif // !PHONEBOOK_HPP
