@@ -1,0 +1,33 @@
+#include "Cat.hpp"
+
+Cat::Cat()
+{
+    std::cout << "default constractor ANIMAL: CAT" << std::endl;
+}
+Cat::Cat(const Cat& copy)
+{
+    std::cout << "copy constractor Cat" << std::endl;
+    this->type = copy.type;
+}
+Cat& Cat::operator=(const Cat& copy)
+{
+    if (this != &copy)
+    {
+        this->type = copy.type;
+    }
+    return *this;
+}
+void Cat::setType(std::string type)
+{
+    this->type = type;
+}
+void Cat::makeSound() const
+{
+    std::cout << "miawwww :)";
+}
+
+
+Cat::~Cat()
+{
+    std::cout << "Deconstractor ANIMAL: CAT" << std::endl;
+}

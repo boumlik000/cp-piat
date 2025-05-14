@@ -1,19 +1,14 @@
 #include "Fixed.hpp"
 
-int main()
-{
-    // int i =5;
-    // int j =1;
-    // std::cout << i++ << std::endl;
-    // std::cout << ++j << std::endl;
-
-
-    Fixed a(15) , b(15);
-    Fixed c(2) , d(15.4f);
-    std::cout << (++c) << std::endl;
-    std::cout << (a++) << std::endl;
-    std::cout << (a < b) << std::endl;
-    std::cout << (a * b) << std::endl;
-    std::cout << (c * d) << std::endl;
+int main( void ) {
+    Fixed a;
+    Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
+    std::cout << a << std::endl;
+    std::cout << ++a << std::endl;
+    std::cout << a << std::endl;
+    std::cout << a++ << std::endl;
+    std::cout << a << std::endl;
+    std::cout << b << std::endl;
+    std::cout << Fixed::max( a, b ) << std::endl;
     return 0;
 }
