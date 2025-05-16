@@ -1,21 +1,18 @@
 #include "../inc/Dog.hpp"
 
-Dog::Dog() :Animal() ,brain(new Brain)
+Dog::Dog() :brain(new Brain)
 {
-    this->type = "dog";
     std::cout << "default constractor ANIMAL: DOG" << std::endl;
 }
 
-Dog::Dog(const Dog& copy): Animal() ,brain(new Brain(*(copy.brain)))
+Dog::Dog(const Dog& copy): A_Animal(copy),brain(new Brain(*(copy.brain)))
 {
     std::cout << "copy constractor DOG" << std::endl;
-    this->type = copy.type;
 }
 Dog& Dog::operator=(const Dog& copy)
 {
     if (this != &copy)
     {
-        this->type = copy.type;
         delete this->brain;
         this->brain = new Brain(*(copy.brain));
     }

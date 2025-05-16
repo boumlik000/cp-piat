@@ -4,7 +4,7 @@ WrongCat::WrongCat():type("wrong cat")
 {
     std::cout << "default constractor ANIMAL: WrongCat" << std::endl;
 }
-WrongCat::WrongCat(const WrongCat& copy)
+WrongCat::WrongCat(const WrongCat& copy):WrongAnimal(copy)
 {
     std::cout << "copy constractor WrongCat" << std::endl;
     this->type = copy.type;

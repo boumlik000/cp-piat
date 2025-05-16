@@ -1,20 +1,17 @@
 #include "../inc/Cat.hpp"
 
-Cat::Cat():Animal() ,brain(new Brain)
+Cat::Cat():brain(new Brain)
 {
-    this->type = "Cat";
     std::cout << "default constractor ANIMAL: CAT" << std::endl;
 }
-Cat::Cat(const Cat& copy): Animal() ,brain(new Brain(*(copy.brain)))
+Cat::Cat(const Cat& copy):A_Animal(copy),brain(new Brain(*(copy.brain)))
 {
     std::cout << "copy constractor Cat" << std::endl;
-    this->type = copy.type;
 }
 Cat& Cat::operator=(const Cat& copy)
 {
     if (this != &copy)
     {
-        this->type = copy.type;
         delete this->brain;
         this->brain= new Brain(*(copy.brain));
     }
@@ -28,8 +25,6 @@ void Cat::makeSound() const
 {
     std::cout << "miawwww :)"<< std::endl;
 }
-
-
 Cat::~Cat()
 {
     delete brain;
