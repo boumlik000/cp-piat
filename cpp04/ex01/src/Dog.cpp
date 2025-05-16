@@ -1,11 +1,12 @@
-#include "Dog.hpp"
+#include "../inc/Dog.hpp"
 
-Dog::Dog()
+Dog::Dog() :Animal() ,brain(new Brain)
 {
+    this->type = "dog";
     std::cout << "default constractor ANIMAL: DOG" << std::endl;
 }
 
-Dog::Dog(const Dog& copy)
+Dog::Dog(const Dog& copy): Animal() ,brain(new Brain(*(copy.brain)))
 {
     std::cout << "copy constractor DOG" << std::endl;
     this->type = copy.type;
@@ -15,6 +16,8 @@ Dog& Dog::operator=(const Dog& copy)
     if (this != &copy)
     {
         this->type = copy.type;
+        delete this->brain;
+        this->brain = new Brain(*(copy.brain));
     }
     return *this;
 }
@@ -25,12 +28,11 @@ void Dog::setType(std::string type)
 }
 void Dog::makeSound() const
 {
-    std::cout << "hawhaw 3333333333333hawhaw :)";
+    std::cout << "hawhaw 3333333333333hawhaw :)"<< std::endl;
 }
-
-
 
 Dog::~Dog()
 {
+    delete brain;
     std::cout << "Deconstractor ANIMAL: DOG" << std::endl;
 }

@@ -1,6 +1,6 @@
-#include "Animal.hpp"
+#include "../inc/Animal.hpp"
 
-Animal::Animal()
+Animal::Animal():type("walo")
 {
     std::cout << "default constractor ANIMAL" << std::endl;
 }
@@ -13,15 +13,17 @@ Animal::Animal(const Animal& copy)
 Animal& Animal::operator=(const Animal& copy)
 {
     if (this != &copy)
-    {
         this->type = copy.type;
-    }
     return *this;
 }
 
 const std::string& Animal::getType() const
 {
     return this->type;
+}
+void Animal::makeSound() const
+{
+    std::cout << "ANIMAL sound" << std::endl;
 }
 Animal::~Animal()
 {

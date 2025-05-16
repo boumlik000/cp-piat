@@ -1,6 +1,6 @@
-#include "Cat.hpp"
+#include "../inc/Cat.hpp"
 
-Cat::Cat()
+Cat::Cat():type("cat")
 {
     std::cout << "default constractor ANIMAL: CAT" << std::endl;
 }
@@ -23,7 +23,7 @@ void Cat::setType(std::string type)
 }
 void Cat::makeSound() const
 {
-    std::cout << "miawwww :)";
+    std::cout << "miawwww :)"<< std::endl;
 }
 
 

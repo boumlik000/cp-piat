@@ -3,13 +3,14 @@
 
 #include <iostream>
 #include "Animal.hpp"
+#include "Brain.hpp"
 
-class Dog : public Animal
+class Dog : public A_Animal
 {
-    protected:
-        std::string type;
+    private:
+        Brain *brain;
     public:
-        Dog(/* args */);
+        Dog();
         Dog(const Dog& copy);
         Dog& operator=(const Dog& copy);
         void setType(std::string type);
