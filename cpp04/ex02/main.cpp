@@ -1,34 +1,32 @@
-#include "./inc/Animal.hpp"
-#include "./inc/Dog.hpp"
-#include "./inc/Cat.hpp"
+#include "Animal.hpp"
+#include "Dog.hpp"
+#include "Cat.hpp"
+#include "WrongAnimal.hpp"
+#include "WrongCat.hpp"
 
-
-#define ARRAY_SIZE 4
+#define SIZE 2
 
 int main()
 {
 
-    Cat* cats[ARRAY_SIZE];
-    Dog* dogs[ARRAY_SIZE];
+    Cat* cats[SIZE];
+    Dog* dogs[SIZE];
 
-    for (size_t i = 0; i < ARRAY_SIZE; i++)
+    for (size_t i = 0; i < SIZE; i++)
     {
         cats[i] = new Cat();
         cats[i]->makeSound();
     }
-    for (size_t i = 0; i < ARRAY_SIZE; i++)
+    for (size_t i = 0; i < SIZE; i++)
     {
         dogs[i] = new Dog();
         dogs[i]->makeSound();
     }
     
-    for (int i = 0; i < ARRAY_SIZE; i++) {
+    for (int i = 0; i < SIZE; i++) {
         delete cats[i];
         delete dogs[i];
     }
-    // delete[] cats;
-    // delete[] dogs;
-
 
     return 0;
 }

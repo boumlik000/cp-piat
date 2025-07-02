@@ -1,9 +1,9 @@
 NAME = Brain
 CC = c++
-CFLAGS= -Wall -Wextra -Werror -std=c++98
+CFLAGS= -Wall -Wextra -Werror -std=c++98 -fsanitize=address -std=c++98
 
-SRC = main.cpp src/Animal.cpp src/Cat.cpp src/Dog.cpp\
-	 src/WrongAnimal.cpp src/WrongCat.cpp src/Brain.cpp 
+SRC = main.cpp Animal.cpp Cat.cpp Dog.cpp\
+	 WrongAnimal.cpp WrongCat.cpp Brain.cpp 
 all:
 	$(CC) $(CFLAGS) $(SRC) -o $(NAME)
 
