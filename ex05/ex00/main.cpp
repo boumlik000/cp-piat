@@ -3,9 +3,10 @@
 
 int main()
 {
+	Bureaucrat persone("mohamed" ,0);
     try
     {
-        Bureaucrat persone("mohamed" , 0);
+       //Bureaucrat persone("mohamed" , 0);
         persone.gradeUP();
         std::cout << persone;
         persone.gradeUP();
