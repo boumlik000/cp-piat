@@ -111,6 +111,12 @@
     "variant": "cpp",
     "queue": "cpp",
     "sstream": "cpp",
-    "map": "cpp"
+    "map": "cpp",
+    "cstring": "cpp",
+    "chrono": "cpp",
+    "ratio": "cpp",
+    "iomanip": "cpp",
+    "stack": "cpp",
+    "cinttypes": "cpp"
   }
 }
